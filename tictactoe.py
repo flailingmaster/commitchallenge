@@ -22,7 +22,7 @@ def is_legal (move):
   return moves[move] == ' '
   
 def legal_moves():
-  return [key for key, value in moves if value == ' ']
+  return [key for key, value in moves.items() if value == ' ']
 
 while True:
   print_help ()
