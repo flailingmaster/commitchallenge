@@ -1,6 +1,6 @@
 moves = {'tl': ' ','tm': ' ','tr': ' ','ml': ' ','mm': ' ','mr': ' ','bl': ' ','bm': ' ','br': ' '}
 board = ['TL','TM','TR','ML','MM','MR','BL','BM','BR']
-
+players = {'Player 1': 'X', 'Player 2': 'O'}
 def print_help ():
   print "TL|TM|TR"
   print "---------"
@@ -19,27 +19,24 @@ def print_board ():
   print "\n"
   
 def is_legal (move):
-  return moves[move] == ' '
+  return move in legal_moves()
   
 def legal_moves():
   return [key for key, value in moves.items() if value == ' ']
 
-while True:
+while len(legal_moves()) > 0:
   print_help ()
-  player_one = raw_input("Player 1, where would you like to place your X? ")
-  one_legal_move = is_legal(player_one) 
-  while (not one_legal_move):
-    player_one = raw_input("That's an illegal move, please select another: ")
-    one_legal_move = is_legal(player_one)
-  moves[player_one] = 'X'
-  print_board ()
-  player_two = raw_input("Player 2, where would you like to place your O? ")
-  two_legal_move = is_legal(player_two)
-  while (not two_legal_move):
-    player_two = raw_input("That's an illegal move, please select another: ")
-    two_legal_move = is_legal(player_two)
-  moves[player_two] = 'O'
-  print_board ()
+  for name, symbol in players.items():
+    dialogue = name + ", where would you like to place your " + symbol + "? "
+    move = raw_input(dialogue)
+    is_legal_move = is_legal(move) 
+    while (not is_legal_move):
+      move = raw_input("That's an illegal move, please select another: ")
+      is_legal_move = is_legal(move)
+    moves[move] = symbol
+    print_board ()
+    if len(legal_moves()) == 0:
+      break
   print moves
   print "\n\n"
 
