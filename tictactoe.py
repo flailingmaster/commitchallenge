@@ -56,7 +56,7 @@ while len(legal_moves()) > 0:
       is_legal_move = is_legal(move)
     moves[move] = symbol
     print_board ()
-    if len(legal_moves()) == 0:
+    if len(legal_moves()) == 0 or someone_won(symbol, move):
       break
   print moves
   print "\n\n"
