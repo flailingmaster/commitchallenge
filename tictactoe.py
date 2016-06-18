@@ -12,6 +12,15 @@ windict = {'tl' : [['tm', 'tr'], ['mm', 'br'], ['ml', 'bl']],
   'bm': [['bl', 'br'], ['tm', 'mm']],
   'br': [['bl', 'bm'], ['tl', 'mm'], ['tr', 'mr']]}
 
+winstates = [['tl', 'tm', 'tr'],
+  ['ml', 'mm', 'mr'],
+  ['bl', 'bm', 'br'],
+  ['tl', 'mm', 'br'],
+  ['bl', 'mm', 'tr'],
+  ['tl', 'ml', 'bl'],
+  ['tm', 'mm', 'bm'],
+  ['tr', 'mr', 'br']]
+
 def print_help ():
   print "TL|TM|TR"
   print "---------"
@@ -43,6 +52,7 @@ def someone_won(symbol, move):
     if symbol == moves[position_one] and symbol == moves[position_two]:
       print "Somebody won!"
       return True
+  print "Nobody won!"
   return False 
 
 while len(legal_moves()) > 0:
@@ -50,10 +60,8 @@ while len(legal_moves()) > 0:
   for name, symbol in players.items():
     dialogue = name + ", where would you like to place your " + symbol + "? "
     move = raw_input(dialogue)
-    is_legal_move = is_legal(move) 
-    while (not is_legal_move):
+    while (not is_legal(move)):
       move = raw_input("That's an illegal move, please select another: ")
-      is_legal_move = is_legal(move)
     moves[move] = symbol
     print_board ()
     if len(legal_moves()) == 0 or someone_won(symbol, move):
