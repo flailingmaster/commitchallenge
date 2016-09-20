@@ -180,6 +180,9 @@ you've put where.
 1. What happens when you print out the value of a variable that you have
 declared but you didn't define?
 
+  * undefined
+
+
 2. Identifiers have some pretty specific rules in JavaScript. Experiment with
 declaring variables using various symbols other than letters and numbers and see
 when you get a Syntax Error.
