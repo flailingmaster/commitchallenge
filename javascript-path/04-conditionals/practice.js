@@ -12,7 +12,18 @@
 //
 //     passwordStrength("helloone");
 //     //=> medium
-var passwordStrength = function () {
+var passwordStrength = function (pass) {
+  var len = pass.length;
+  console.log("len = "+ len);
+  if (len < 7) {
+    return "weak";
+  }
+  if (len >= 7 && len < 10) {
+    return "medium";
+  }
+  if (len >= 10) {
+    return "strong";
+  }
 };
 
 
@@ -37,7 +48,10 @@ var passwordStrength = function () {
 //
 //      isLeapYear("hello");
 //      //=> THAT'S NOT A NUMBER!
-var isLeapYear = function () {
+var isLeapYear = function (year) {
+  if (!isNumber(year)) {
+    throw "THAT'S NOT A NUMBER!";
+  }
 };
 
 
@@ -161,10 +175,3 @@ var interjectAt = function () {
 // function with the appropriate arguments.
 var randomInterject = function () {
 };
-
-
-
-
-
-
-
