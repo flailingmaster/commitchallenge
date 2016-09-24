@@ -49,9 +49,23 @@ var passwordStrength = function (pass) {
 //      isLeapYear("hello");
 //      //=> THAT'S NOT A NUMBER!
 var isLeapYear = function (year) {
-  if (!isNumber(year)) {
+  if (!Number.isInteger(year)) {
     throw "THAT'S NOT A NUMBER!";
+  } else if (year % 4 == 0) {
+      console.log ("year: "+year);
+      if (year % 100 == 0) {
+        if (year % 400 == 0) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+       return true;
+      }
+  } else {
+      return false;
   }
+
 };
 
 
