@@ -41,4 +41,28 @@ var firstInDictionary = function (a, b, c) {
 firstInDictionary("rhino", "aardvark", "zebra");
 firstInDictionary("whale", "zebra", "yak");
 firstInDictionary("whale", "zebra", "aardvark");
-firstInDictionary("whale", 5, 10);
+//firstInDictionary("whale", 5, 10);
+
+var getTagName = function (tag) {
+    var tagName;
+    firstbracket = tag.indexOf("<");
+    endbracket = tag.indexOf(">");
+    nextbracket = tag.indexOf("<", firstbracket+1);
+    endnextbracket = tag.indexOf(">", nextbracket);
+    endTag = tag.slice(nextbracket+ 2, endnextbracket);
+    console.log("endtag: "+endTag);
+    tagName = tag.slice(firstbracket+1, endbracket);
+    console.log("firsttag:"+tagName);
+    if (endTag === tagName) {
+      return tagName;
+    } else {
+      throw "Not an HTML Element";
+    }
+
+};
+
+getTagName("<p>this is a paragraph</p>");
+//     //=> p
+//
+getTagName("<p>this is wrong</div>");
+//     //=> Error: Not an HTML Element!

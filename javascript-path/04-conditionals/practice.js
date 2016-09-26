@@ -119,20 +119,56 @@ var firstInDictionary = function (a, b, c) {
 //
 //     getTagName("<p>this is wrong</div>");
 //     //=> Error: Not an HTML Element!
-var getTagName = function () {
+var getTagName = function (tag) {
+    var tagName;
+    firstbracket = tag.indexOf("<");
+    endbracket = tag.indexOf(">");
+    nextbracket = tag.indexOf("<", firstbracket+1);
+    endnextbracket = tag.indexOf(">", nextbracket);
+    endTag = tag.slice(nextbracket+ 2, endnextbracket);
+    console.log("endtag: "+endTag);
+    tagName = tag.slice(firstbracket+1, endbracket);
+    console.log("firsttag:"+tagName);
+    if (endTag === tagName) {
+      return tagName;
+    } else {
+      throw "Not an HTML Element";
+    }
+
 };
 
 
 // Re-implement our improveTweet function so it can generate any of lol, omg,
 // lmao, and rofl.
-var improveTweet = function () {
+var improveTweet = function (tweet) {
+    // generate either a 1 or a 0
+    var random = Math.floor(Math.random() * 4);
+    var result = tweet;
+    var expression;
+
+    if (random === 0) {
+        expression = "lol";
+    } else if (random === 1) {
+        expression = "omg";
+    } else if (random === 2) {
+        expression = "lmao";
+    } else if (random === 3) {
+        expression = "rofl";
+    }
+
+    if (result.indexOf(expression) === -1 && result.indexOf(expression.toUpperCase()) === -1) {
+        result = result + " " + expression;
+    }
+
+    return result;
 };
 
 
 // Write a function called `isQuestion` that returns true if the input is a
 // string and it ends in a question mark. We'll use this function in the next
 // practice problem.
-var isQuestion = function () {
+var isQuestion = function (question) {
+  return (question.slice(-1) === "?");
 };
 
 
