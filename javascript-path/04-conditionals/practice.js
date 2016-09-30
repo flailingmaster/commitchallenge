@@ -195,7 +195,24 @@ var isQuestion = function (question) {
 //
 //     magic8Ball("Is this a question?");
 //     //=> Signs point to yes
-var magic8Ball = function () {
+var magic8Ball = function (question) {
+  var positive = ["Signs point to yes", "Hell yes", "Very positive"];
+  var negative = ["Very doubtful", "My reply is no", "Hell no"];
+  var neutral = ["Meh", "Maybe yes, maybe no. Maybe go fuck yourself.", "Definitely maybe."];
+
+  if (isQuestion(question)) {
+    console.log("some bullshit");
+    var random = Math.floor(Math.random() * 4);
+    if (random == 1) {
+      // negative
+    } else if (random == 2) {
+      // neutral
+    } else {
+      // positive
+    }
+  } else {
+    throw "THAT DOESN'T SOUND LIKE A QUESTION!"
+  }
 };
 
 
