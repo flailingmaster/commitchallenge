@@ -61,8 +61,28 @@ var getTagName = function (tag) {
 
 };
 
+var interjectAt = function (interjection, position, destination) {
+  if (typeof position != "number" || typeof interjection != "string" || typeof destination  != "string" ) {
+    throw "args are not the correct types";
+  } else
+   if (position > destination.length - 1) {
+    throw "the string doesn't have that many letters!"
+  } else {
+    console.log (typeof position);
+    console.log (typeof interjection);
+    console.log (typeof destination);
+    var beginning = destination.slice(0, position);
+    var end = destination.slice(position, destination.length);
+    var interjected = beginning + "-" + interjection + "-" + end;
+    console.log(interjected);
+    return interjected;
+  }
+};
+
 getTagName("<p>this is a paragraph</p>");
 //     //=> p
 //
-getTagName("<p>this is wrong</div>");
+//getTagName("<p>this is wrong</div>");
 //     //=> Error: Not an HTML Element!
+interjectAt("interjection", 5, "hello world!");
+interjectAt(5, "omg", "hello");

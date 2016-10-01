@@ -262,7 +262,22 @@ var magic8Ball = function (question) {
 //     var strWithInterjection = beginning + "-lol-" + end;
 //
 // You just have to generalize this to an arbitrary index and wrap it in a function.
-var interjectAt = function () {
+var interjectAt = function (interjection, position, destination) {
+  if (typeof position != "number" || typeof interjection != "string" || typeof destination  != "string" ) {
+    throw "args are not the correct types";
+  } else
+   if (position > destination.length - 1) {
+    throw "the string doesn't have that many letters!"
+  } else {
+    console.log (typeof position);
+    console.log (typeof interjection);
+    console.log (typeof destination);
+    var beginning = destination.slice(0, position);
+    var end = destination.slice(position, destination.length);
+    var interjected = beginning + "-" + interjection + "-" + end;
+    console.log(interjected);
+    return interjected;
+  }
 };
 
 
