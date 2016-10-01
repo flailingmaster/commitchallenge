@@ -205,10 +205,20 @@ var magic8Ball = function (question) {
     var random = Math.floor(Math.random() * 4);
     if (random == 1) {
       // negative
+      var response = Math.floor(Math.random() * negative.length);
+      console.log(negative[response]);
+      return negative[response];
+
     } else if (random == 2) {
+      var response = Math.floor(Math.random() * neutral.length);
+      console.log(neutral[response]);
+      return neutral[response];
       // neutral
     } else {
       // positive
+      var response = Math.floor(Math.random() * positive.length);
+      console.log(positive[response]);
+      return positive[response];
     }
   } else {
     throw "THAT DOESN'T SOUND LIKE A QUESTION!"
