@@ -269,13 +269,9 @@ var interjectAt = function (interjection, position, destination) {
    if (position > destination.length - 1) {
     throw "the string doesn't have that many letters!"
   } else {
-    console.log (typeof position);
-    console.log (typeof interjection);
-    console.log (typeof destination);
     var beginning = destination.slice(0, position);
     var end = destination.slice(position, destination.length);
     var interjected = beginning + "-" + interjection + "-" + end;
-    console.log(interjected);
     return interjected;
   }
 };
@@ -285,5 +281,19 @@ var interjectAt = function (interjection, position, destination) {
 // `randomInterjection` function consists of generating a random message and a
 // random location within the string, and then calling into the `interjectAt`
 // function with the appropriate arguments.
-var randomInterject = function () {
+var randomInterject = function (message) {
+  if (typeof message != "string" ) {
+    console.log("message is not a string");
+    throw "Message is not a string: "+ message;
+  } else {
+    console.log("message"+ message);
+    var interjections = ["lol", "omg"];
+
+    var interjection = interjections[Math.floor(Math.random() * interjections.length)];
+    console.log("interjection: "+interjection);
+    var position = Math.floor(Math.random() * message.length);
+    console.log("test: "+message.length);
+    console.log("position: "+position);
+    interjectAt(interjection, position, message);
+  }
 };

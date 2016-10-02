@@ -68,21 +68,43 @@ var interjectAt = function (interjection, position, destination) {
    if (position > destination.length - 1) {
     throw "the string doesn't have that many letters!"
   } else {
-    console.log (typeof position);
-    console.log (typeof interjection);
-    console.log (typeof destination);
     var beginning = destination.slice(0, position);
     var end = destination.slice(position, destination.length);
     var interjected = beginning + "-" + interjection + "-" + end;
-    console.log(interjected);
     return interjected;
   }
 };
 
-getTagName("<p>this is a paragraph</p>");
+
+// Now that you have a robust function to do your interjection, your actual
+// `randomInterjection` function consists of generating a random message and a
+// random location within the string, and then calling into the `interjectAt`
+// function with the appropriate arguments.
+var randomInterject = function (message) {
+  if (typeof message != "string" ) {
+    console.log("message is not a string");
+    throw "Message is not a string: "+ message;
+  } else {
+    console.log("message:"+ message);
+    var interjections = ["lol", "omg"];
+
+    var interjection = interjections[Math.floor(Math.random() * interjections.length)];
+    console.log("interjection: "+interjection);
+    var position = Math.floor(Math.random() * message.length);
+    console.log("test: "+message.length);
+    console.log("position: "+position);
+    interjectAt(interjection, position, message);
+  }
+};
+
+//getTagName("<p>this is a paragraph</p>");
 //     //=> p
 //
 //getTagName("<p>this is wrong</div>");
 //     //=> Error: Not an HTML Element!
-interjectAt("interjection", 5, "hello world!");
-interjectAt(5, "omg", "hello");
+//interjectAt("interjection", 5, "hello world!");
+//interjectAt(5, "omg", "hello");
+for (i = 0; i < 10; i++) {
+    console.log(randomInterject("hello world!"));
+};
+randomInterject(5);
