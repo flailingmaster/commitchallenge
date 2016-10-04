@@ -17,7 +17,16 @@
 //    isVowel("Y");
 //    //=> false
 //
-var isVowel = function () {
+var isVowel = function (letter) {
+  if (letter.length == 1) {
+    ["a", "e", "i", "o", "u"].forEach(function(value) {
+      if(letter.toLowerCase() == value) {
+        console.log("matched!");
+        return true;
+      }
+    });
+  }
+  return false;
 };
 
 
