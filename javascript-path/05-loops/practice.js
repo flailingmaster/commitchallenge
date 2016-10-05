@@ -19,12 +19,15 @@
 //
 var isVowel = function (letter) {
   if (letter.length == 1) {
-    ["a", "e", "i", "o", "u"].forEach(function(value) {
-      if(letter.toLowerCase() == value) {
+    var vowels = ["a", "e", "i", "o", "u"];
+    for (var i = 0; i < vowels.length; i++) {
+      var vowel = vowels[i];
+        console.log("value:"+vowel+" letter:"+letter);
+      if(letter.toLowerCase() == vowel) {
         console.log("matched!");
         return true;
       }
-    });
+    }
   }
   return false;
 };
