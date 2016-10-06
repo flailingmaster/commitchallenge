@@ -51,8 +51,13 @@ var isVowel = function (letter) {
 //    isLowerCaseLetter(true);
 //    //=> false
 //
-var isLowerCaseLetter = function () {
-};
+var isLowerCaseLetter = function (letter) {
+  if (letter.length == 1 && typeof letter == "string") {
+    return /[a-z]/.test(letter)
+  } else {
+    return false;
+  }
+}
 
 
 // Write a function called `sumUpTo` so that it accepts a positive number `n`
