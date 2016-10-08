@@ -76,7 +76,15 @@ var isLowerCaseLetter = function (letter) {
 //     sumUpTo(-10);
 //     //=> input must be a zero or a positive number!
 //
-var sumUpTo = function () {
+var sumUpTo = function (target) {
+  if (target < 0) {
+    throw "input must be a zero or a positive number!";
+  }
+  var result = 0;
+  for (var i = 0; i <= target; i++) {
+    result = result + i;
+  }
+  return result;
 };
 
 
@@ -99,7 +107,21 @@ var sumUpTo = function () {
 //     sumAToB("hello", "world");
 //     //=> inputs should be numbers!
 //
-var sumAToB = function () {
+var sumAToB = function (a, b) {
+  if (typeof a != "number" || typeof b != "number") {
+    throw "inputs should be numbers!";
+  }
+  var result = 0;
+  if (a >= b) {
+    for (var i = b; i <= a; i++) {
+      result += i;
+    }
+  } else {
+    for (var i = a; i <= b; i++) {
+      result += i;
+    }
+  }
+  return result;
 };
 
 
@@ -120,7 +142,17 @@ var sumAToB = function () {
 //     countVowels(true);
 //     //=> input to countVowels must be a string!
 //
-var countVowels = function () {
+var countVowels = function (input) {
+  if (typeof input != "string") {
+    throw "input to countVowels must be a string!";
+  }
+  var totalVowels = 0;
+  for (var i = 0; i < input.length; i++) {
+    if (isVowel(input[i])) {
+      totalVowels++;
+    }
+  }
+  return totalVowels;
 };
 
 
@@ -139,7 +171,10 @@ var countVowels = function () {
 //     reverse(true);
 //     //=> input to reverseString must be an string!
 //
-var reverseString = function () {
+var reverseString = function (input) {
+  if (typeof input != "string") {
+    throw "input to countVowels must be a string!";
+  }
 };
 
 
