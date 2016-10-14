@@ -175,6 +175,11 @@ var reverseString = function (input) {
   if (typeof input != "string") {
     throw "input to countVowels must be a string!";
   }
+  var reversed = "";
+  for (var i = input.length-1; i >= 0; i--) {
+    reversed += input[i];
+  }
+  return reversed;
 };
 
 
