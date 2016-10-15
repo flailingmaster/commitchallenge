@@ -92,6 +92,7 @@ isPrime(101);
 //
 isPrime(13);
 //     //=> true
+isPrime(20);
 //
 isPrime(1);
 //     //=> false

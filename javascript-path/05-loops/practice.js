@@ -207,21 +207,23 @@ var reverseString = function (input) {
 //     //=> false
 //
 var isPrime = function (input) {
-  if (typeof input != "number") {
-    return false;
-  } else if (input <= 1) {
+    console.log("input: "+input);
+  if (input <= 1) {
+    console.log('false');
     return false;
   } else {
     var least = 2;
-    for (i = 2; i < input; i++) {
-      if (i % input == 0) {
+    for (i = 2; i <= input; i++) {
+      if (input % i == 0) {
         least = i;
         break;
       }
     }
     if (least == input) {
+      console.log('true');
       return true;
     } else {
+      console.log('false');
       return false;
     }
   }
