@@ -39,27 +39,69 @@ var isLowerCaseLetter = function (letter) {
   }
 }
 
-console.log("test 1");
-    var result = isLowerCaseLetter("a");
-console.log("result: "+ result);
-//    //=> true
+// console.log("test 1");
+//     var result = isLowerCaseLetter("a");
+// console.log("result: "+ result);
+// //    //=> true
+// //
+// console.log("test 2");
+// var result = isLowerCaseLetter("A");
+// console.log("result: "+ result);
+// //    //=> false
+// //
+// console.log("test 3");
+//     var result = isLowerCaseLetter(1);
+//     console.log("result: "+ result);
+// //    //=> false
+// //
+// console.log("test 4");
+//     var result = isLowerCaseLetter("ae");
+//     console.log("result: "+ result);
+// //    //=> false
+// //
+// console.log("test 5");
+//     var result = isLowerCaseLetter(true);
+// //    //=> false
+// //
+
+var isPrime = function (input) {
+    console.log("input: "+input);
+  if (input <= 1) {
+    console.log('false');
+    return false;
+  } else {
+    var least = 2;
+    for (i = 2; i <= input; i++) {
+      if (input % i == 0) {
+        least = i;
+        break;
+      }
+    }
+    if (least == input) {
+      console.log('true');
+      return true;
+    } else {
+      console.log('false');
+      return false;
+    }
+  }
+};
+
+isPrime(101);
+//     //=> true
 //
-console.log("test 2");
-var result = isLowerCaseLetter("A");
-console.log("result: "+ result);
-//    //=> false
+isPrime(13);
+//     //=> true
 //
-console.log("test 3");
-    var result = isLowerCaseLetter(1);
-    console.log("result: "+ result);
-//    //=> false
+isPrime(1);
+//     //=> false
 //
-console.log("test 4");
-    var result = isLowerCaseLetter("ae");
-    console.log("result: "+ result);
-//    //=> false
+isPrime(2);
+//     //=> true
 //
-console.log("test 5");
-    var result = isLowerCaseLetter(true);
-//    //=> false
+isPrime("hello");
+//     //=> false
+//
+isPrime(-101);
+//     //=> false
 //

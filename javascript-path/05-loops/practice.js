@@ -206,7 +206,25 @@ var reverseString = function (input) {
 //     isPrime(-101);
 //     //=> false
 //
-var isPrime = function () {
+var isPrime = function (input) {
+  if (typeof input != "number") {
+    return false;
+  } else if (input <= 1) {
+    return false;
+  } else {
+    var least = 2;
+    for (i = 2; i < input; i++) {
+      if (i % input == 0) {
+        least = i;
+        break;
+      }
+    }
+    if (least == input) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };
 
 
