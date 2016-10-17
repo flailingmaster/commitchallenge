@@ -248,7 +248,12 @@ var isPrime = function (input) {
 //     sumPrimesUpTo("whatever");
 //     //=> input should be a number
 //
-var sumPrimesUpTo = function () {
+var sumPrimesUpTo = function (target) {
+  if (input <= 1) {
+    console.log('false');
+  } else if (typeof input != "number") {
+
+  }
 };
 
 
