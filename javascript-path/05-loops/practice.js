@@ -249,10 +249,18 @@ var isPrime = function (input) {
 //     //=> input should be a number
 //
 var sumPrimesUpTo = function (target) {
+  var sumprimes = 0;
   if (input <= 1) {
     console.log('false');
+    return 0;
   } else if (typeof input != "number") {
-
+    throw "input should be a number";
+  } else {
+    for (i = 2; i <= target; i++) {
+     if (isPrime(i)) {
+       sumprimes += i;
+     }
+    }
   }
 };
 

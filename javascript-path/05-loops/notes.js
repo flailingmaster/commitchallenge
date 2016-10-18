@@ -65,9 +65,9 @@ var isLowerCaseLetter = function (letter) {
 // //
 
 var isPrime = function (input) {
-    console.log("input: "+input);
+//    console.log("input: "+input);
   if (input <= 1) {
-    console.log('false');
+//    console.log('false');
     return false;
   } else {
     var least = 2;
@@ -78,31 +78,46 @@ var isPrime = function (input) {
       }
     }
     if (least == input) {
-      console.log('true');
+//      console.log('true');
       return true;
     } else {
-      console.log('false');
+//      console.log('false');
       return false;
     }
   }
 };
 
-isPrime(101);
-//     //=> true
+
+var sumPrimesUpTo = function (target) {
+  var sumprimes = 0;
+  if (target <= 1) {
+    console.log('false');
+    return 0;
+  } else if (typeof target != "number") {
+    throw "input should be a number";
+  } else {
+    for (i = 2; i <= target; i++) {
+      console.log("i:"+i);
+     if (isPrime(i)) {
+       sumprimes += i;
+     }
+    }
+    return sumprimes;
+  }
+};
+console.log("sumPrimesUpTo(100)");
+     sumPrimesUpTo(100);
+//     //=> 1060
 //
-isPrime(13);
-//     //=> true
-isPrime(20);
+//     sumPrimesUpTo(0);
+//     //=> 0
 //
-isPrime(1);
-//     //=> false
+//     sumPrimesUpTo(1000);
+//     //=> 76127
 //
-isPrime(2);
-//     //=> true
+//     sumPrimesUpTo(2);
+//     //=> 2
 //
-isPrime("hello");
-//     //=> false
-//
-isPrime(-101);
-//     //=> false
+//     sumPrimesUpTo("whatever");
+//     //=> input should be a number
 //
