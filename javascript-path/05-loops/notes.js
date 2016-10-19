@@ -13,7 +13,7 @@ var isVowel = function (letter) {
   return false;
 };
 
-isVowel("a");
+//isVowel("a");
 //    isVowel("a");
 //    //=> true
 //
@@ -96,17 +96,22 @@ var sumPrimesUpTo = function (target) {
   } else if (typeof target != "number") {
     throw "input should be a number";
   } else {
-    for (i = 2; i <= target; i++) {
+    console.log('final condition');
+    for (var i = 2; i <= target; i++) {
       console.log("i:"+i);
      if (isPrime(i)) {
+       console.log("found prime: "+i);
        sumprimes += i;
      }
     }
+    console.log("total: "+sumprimes);
     return sumprimes;
   }
 };
 console.log("sumPrimesUpTo(100)");
-     sumPrimesUpTo(100);
+sumPrimesUpTo(100);
+sumPrimesUpTo(20);
+sumPrimesUpTo(50);
 //     //=> 1060
 //
 //     sumPrimesUpTo(0);

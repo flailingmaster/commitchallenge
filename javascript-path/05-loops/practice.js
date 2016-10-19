@@ -250,17 +250,22 @@ var isPrime = function (input) {
 //
 var sumPrimesUpTo = function (target) {
   var sumprimes = 0;
-  if (input <= 1) {
+  if (target <= 1) {
     console.log('false');
     return 0;
-  } else if (typeof input != "number") {
+  } else if (typeof target != "number") {
     throw "input should be a number";
   } else {
-    for (i = 2; i <= target; i++) {
+    console.log('final condition');
+    for (var i = 2; i <= target; i++) {
+      console.log("i:"+i);
      if (isPrime(i)) {
+       console.log("found prime: "+i);
        sumprimes += i;
      }
     }
+    console.log("total: "+sumprimes);
+    return sumprimes;
   }
 };
 
