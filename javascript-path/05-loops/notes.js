@@ -108,10 +108,10 @@ var sumPrimesUpTo = function (target) {
     return sumprimes;
   }
 };
-console.log("sumPrimesUpTo(100)");
-sumPrimesUpTo(100);
-sumPrimesUpTo(20);
-sumPrimesUpTo(50);
+// console.log("sumPrimesUpTo(100)");
+// sumPrimesUpTo(100);
+// sumPrimesUpTo(20);
+// sumPrimesUpTo(50);
 //     //=> 1060
 //
 //     sumPrimesUpTo(0);
@@ -126,3 +126,52 @@ sumPrimesUpTo(50);
 //     sumPrimesUpTo("whatever");
 //     //=> input should be a number
 //
+
+var removeNonLetters = function (input) {
+  var output = "";
+  for (var i = 0; i < input.length; i++) {
+    testchar = input.charAt(i);
+    if (/[a-z|A-Z]/.test(testchar)) {
+      console.log(testchar);
+      output = output + testchar;
+    }
+  }
+  console.log(output);
+  return output;
+};
+     removeNonLetters("A man, a plan, a canal, Panama");
+//     //=> AmanaplanacanalPanama
+//
+     removeNonLetters("this is a string; it has some punctuation!");
+//     //=> thisisastringithassomepunctuation
+var reverseString = function (input) {
+  if (typeof input != "string") {
+    throw "input to countVowels must be a string!";
+  }
+  var reversed = "";
+  for (var i = input.length-1; i >= 0; i--) {
+    reversed += input[i];
+  }
+  return reversed;
+};
+
+var isPalindrome = function (input) {
+  if (typeof input != "string") {
+    return false;
+  }
+  var clean = removeNonLetters(input);
+  var rev = reverseString(clean);
+  console.log("rev:"+rev.toLowerCase());
+  console.log("clean:"+clean.toLowerCase());
+  if (rev.toLowerCase() == clean.toLowerCase()) {
+    console.log("palindrome!");
+    return true;
+  } else {
+    console.log("not palindrome!");
+    return false;
+  }
+};
+
+isPalindrome("kayak");
+isPalindrome("A man, a plan, a canal, Panama");
+isPalindrome("hello world");
