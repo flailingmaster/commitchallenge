@@ -291,7 +291,24 @@ var sumPrimesUpTo = function (target) {
 //     sumOfFirstNPrimes(-10);
 //     //=> input number should be zero or a positive number!
 //
-var sumOfFirstNPrimes = function () {
+var sumOfFirstNPrimes = function (input) {
+  if (input < 0 || typeof input != "number") {
+    throw "input number should be zero or a positive number!";
+  } else if (input == 0) {
+    return 0;
+  } else {
+    var sumofprimes = 0;
+    var numofprimes = 0;
+    var i = 2;
+    while (numofprimes < input) {
+      if (isPrime(i)) {
+        sumofprimes += i;
+        numofprimes++;
+      }
+      i++;
+    }
+    return sumofprimes;
+  }
 };
 
 
