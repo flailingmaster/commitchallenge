@@ -14,7 +14,14 @@
 //     containsTwice(10, [10, 10, 10, 10, 10]);
 //     //=> false
 //
-var containsTwice = function () {
+var containsTwice = function (needle, haystack) {
+  var appears = 0;
+  for (var i = 0; i < haystack.length; i++) {
+    if (needle == haystack[i]) {
+      appears++;
+    }
+  }
+  return appears == 2;
 };
 
 
@@ -30,7 +37,14 @@ var containsTwice = function () {
 //     containsNTimes(0, 5, [ 1, 2, 3, 4, 5 ]);
 //     //=> false
 //
-var containsNTimes = function () {
+var containsNTimes = function (times, needle, haystack) {
+  var appears = 0;
+  for (var i = 0; i < haystack.length; i++) {
+    if (needle == haystack[i]) {
+      appears++;
+    }
+  }
+  return appears == times;
 };
 
 
@@ -50,7 +64,17 @@ var containsNTimes = function () {
 //     atLeastOneEven("hello");
 //     //=> input should be an array!
 //
-var atLeastOneEven = function () {
+var atLeastOneEven = function (haystack) {
+  if (typeof haystack != "array") {
+    throw "input should be an array!"
+  }
+  var numofevens = 0;
+  for (var i = 0; i < haystack.length; i++) {
+    if (haystack[i] % 2 == 0) {
+      numofevens++;
+    }
+  }
+  return numofevens >= 1;
 };
 
 
