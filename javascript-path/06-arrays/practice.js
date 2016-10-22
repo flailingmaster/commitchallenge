@@ -94,7 +94,16 @@ var atLeastOneEven = function (haystack) {
 // Although the tests will not be checking for this, try to make your loop exit
 // as soon as it finds a non-string entry in the array.
 //
-var allStrings = function () {
+var allStrings = function (input) {
+  if (typeof input != "array") {
+    throw "input should be an array!"
+  }
+  for (var i = 0; i < input.length; i++) {
+    if(typeof input[i] != "string") {
+      return false;
+    }
+  }
+  return true;
 };
 
 
