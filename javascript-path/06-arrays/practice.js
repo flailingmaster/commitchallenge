@@ -65,7 +65,7 @@ var containsNTimes = function (times, needle, haystack) {
 //     //=> input should be an array!
 //
 var atLeastOneEven = function (haystack) {
-  if (typeof haystack != "array") {
+  if (!Array.isArray(haystack)) {
     throw "input should be an array!"
   }
   var numofevens = 0;
@@ -95,7 +95,7 @@ var atLeastOneEven = function (haystack) {
 // as soon as it finds a non-string entry in the array.
 //
 var allStrings = function (input) {
-  if (typeof input != "array") {
+  if (!Array.isArray(input)) {
     throw "input should be an array!"
   }
   for (var i = 0; i < input.length; i++) {
@@ -129,7 +129,28 @@ var allStrings = function (input) {
 // as soon as it finds an element in the first array that appears twice in the second
 // array.
 //
-var containsAnyTwice = function () {
+var containsAnyTwice = function (needle, haystack) {
+  if (!Array.isArray(needle) ||  !Array.isArray(haystack)) {
+    throw "containsAnyTwice expects two arguments, both of which should be an array."
+  } else {
+     var assoc = [];
+     for (var i = 0; i < haystack.length; i++) {
+      for (var j = 0; j < needle.length; j++) {
+        if (needle[j] == haystack[i]) {
+          target = needle[j];
+          if (typeof assoc[target] == 'undefined') {
+            assoc[target] = 1;
+          } else {
+            assoc[target] += 1;
+            if (assoc[target] == 2) {
+              return true;
+            }
+          }
+        }
+      }
+     }
+     return false;
+  }
 };
 
 
