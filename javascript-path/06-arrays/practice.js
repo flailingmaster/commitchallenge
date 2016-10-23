@@ -179,7 +179,14 @@ var containsAnyTwice = function (needle, haystack) {
 //     getValuesAppearingTwice(["hello", "world", "goodbye"])
 //     //=> []
 //
-var getValuesAppearingTwice = function () {
+var getValuesAppearingTwice = function (haystack) {
+  var ret = [];
+  for (var i = 0; i < haystack.length; i++) {
+    if(containsTwice(haystack[i], haystack) && ret.indexOf(haystack[i]) == -1) {
+      ret.push(haystack[i]);
+    };
+  }
+  return ret;
 };
 
 
