@@ -209,7 +209,20 @@ var getValuesAppearingTwice = function (haystack) {
 //     range("hello", "world");
 //     //=> arguments to range must be numbers
 //
-var range = function () {
+var range = function (begin, end) {
+  var ret = [];
+  if (typeof begin != 'number' || typeof end != 'number') {
+    throw "arguments to range must be numbers";
+  } else if (begin <= end) {
+    for (var i = begin; i <= end; i++) {
+      ret.push(i);
+    }
+  } else if (begin > end) {
+    for (var i = begin; i >= end; i--) {
+      ret.push(i);
+    }
+  }
+  return ret;
 };
 
 
