@@ -247,7 +247,54 @@ var range = function (begin, end) {
 //     mapToTags([ "not an html element" ]);
 //     //=> all entries must be html elements!
 //
-var mapToTags = function () {
+var isHTMLElement = function (element) {
+	console.log(element)
+	beginning = element.indexOf('>')
+	console.log(beginning)
+	fromend = -beginning
+	test1=element.slice(1,beginning)
+	test2=element.slice(fromend, -1)
+	console.log(test1)
+	console.log(test2)
+	var endtag = element.charAt(element.length + fromend - 1)
+	console.log(endtag)
+	if (beginning < 0) return false
+	if (beginning == element.length - 1) return false
+  if (endtag != '/') return false
+  return element.slice(1,beginning) == element.slice(fromend, -1)
+};
+
+var getTagName = function (tag) {
+    var tagName;
+    firstbracket = tag.indexOf("<");
+    endbracket = tag.indexOf(">");
+    nextbracket = tag.indexOf("<", firstbracket+1);
+    endnextbracket = tag.indexOf(">", nextbracket);
+    endTag = tag.slice(nextbracket+ 2, endnextbracket);
+    console.log("endtag: "+endTag);
+    tagName = tag.slice(firstbracket+1, endbracket);
+    console.log("firsttag:"+tagName);
+    if (endTag === tagName) {
+      return tagName;
+    } else {
+      throw "Not an HTML Element";
+    }
+
+};
+var mapToTags = function (elements) {
+  if (!Array.isArray(elements)) {
+    throw "wat?"
+  } else {
+    var ret = [];
+    for (var i = 0; i < elements.length; i++) {
+      if (isHTMLElement(elements[i])) {
+        ret.push(getTagName(elements[i]));
+      } else {
+        throw "all entries must be html elements!"
+      }
+    }
+    return ret;
+  }
 };
 
 
