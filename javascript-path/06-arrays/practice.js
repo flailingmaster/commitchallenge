@@ -318,5 +318,21 @@ var mapToTags = function (elements) {
 //     filterToLol(["this is a string", false, 5]);
 //     //=> all entries must be strings!
 //
-var filterToLol = function () {
+var filterToLol = function (tweets) {
+  if (!Array.isArray(tweets)) {
+    throw "no can do.";
+  } else {
+    var ret = [];
+    for (var i = 0; i < tweets.length; i++) {
+      if(typeof tweets[i] != "string") {
+        throw "all entries must be strings!";
+      } else {
+        console.log(tweets[i].toLowerCase());
+        if(tweets[i].toLowerCase().indexOf('lol') != -1) {
+          ret.push(tweets[i]);
+        }
+      }
+    }
+    return ret;
+  }
 };
